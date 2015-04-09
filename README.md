@@ -42,9 +42,11 @@ The two flanking values are combined to get the percentile value.
 
 Method Nearest: Closest rank to the chosen percentile. Only uses single values. Does not compute the average of two flanking 
 values.
+
 Method Linear: More stable when the number of samples is low. Can be more computational intensive for large sample numbers. (Track all 
 combinations of three or four ranks rather than just two. For large sample sizes the difference between linear and nearest modes
 are small.
+
 In auto mode, Linear is used if the number of samples is less or equal to one hundred. Otherwise Nearest. 
 
 
@@ -81,7 +83,7 @@ make clean
 make
 
 
-This code was compiled using gcc version 4.4.6 over 64 bits Redhat Linux and gcc 4.6.3 over 32 bits 
+This code was compiled using gcc version 4.5.0 over 64 bits Redhat Linux and gcc 4.6.3 over 32 bits 
 Ubuntu distribution.
 
 
