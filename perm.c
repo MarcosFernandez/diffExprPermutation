@@ -61,7 +61,7 @@ static inline void check_pc_2(double z, float* xp, float* yp, int nv,
         __m128 tx = _mm_load_ps(xp + i);
         tx = _mm_sub_ps(tx, _mm_load_ps(yp + i));
         tx = _mm_andnot_ps(sign_mask, tx);
-        tx = _mm_cmpnle_ps(tx, _mm_load_ps(diff + i));
+        tx = _mm_cmpnlt_ps(tx, _mm_load_ps(diff + i));
         UPDATE_PVAL(tx, i, pmask, pval);
     }
 }
@@ -84,7 +84,7 @@ static inline void check_pc_3(double z, float* xp, float* xp1, float* yp,
         tx = _mm_add_ps(tx, tx1);
         tx = _mm_sub_ps(tx, _mm_load_ps(yp + i));
         tx = _mm_andnot_ps(sign_mask, tx);
-        tx = _mm_cmpnle_ps(tx, _mm_load_ps(diff + i));
+        tx = _mm_cmpnlt_ps(tx, _mm_load_ps(diff + i));
         UPDATE_PVAL(tx, i, pmask, pval);
     }
 }
@@ -113,7 +113,7 @@ static inline void check_pc_4(double z, float* xp, float* xp1, float* yp,
         tx1 = _mm_add_ps(tx1, tx2);
         tx = _mm_sub_ps(tx, tx1);
         tx = _mm_andnot_ps(sign_mask, tx);
-        tx = _mm_cmpnle_ps(tx, _mm_load_ps(diff + i));
+        tx = _mm_cmpnlt_ps(tx, _mm_load_ps(diff + i));
         UPDATE_PVAL(tx, i, pmask, pval);
     }
 }
